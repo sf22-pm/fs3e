@@ -1,4 +1,4 @@
-# sf22_feature_selection
+# fs3e
 
 Ferramenta para automatizar e simplificar a execução de métodos de seleção de características (FS) e modelos de machine learning (ML).
 
