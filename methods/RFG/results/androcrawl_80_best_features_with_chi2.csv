@@ -1,0 +1,81 @@
+feature,score,feature_index
+Api Call: Landroid/content/pm/PackageManager;->getPreferredActivities,52134.23289698482,68
+Api Call: Landroid/telephony/TelephonyManager;->getSimSerialNumber,40377.285021433934,54
+Api Call: Landroid/content/Intent;->describeContents,17273.458600458875,67
+Api Call: Ljavax/crypto/Cipher;->getInstance,16158.274011278896,65
+Api Call: Landroid/telephony/TelephonyManager;->getDeviceId,16001.348546675566,52
+Api Call: Landroid/provider/Browser;->getAllBookmarks,14859.058103198971,66
+Api Call: Landroid/app/Service;->onLowMemory,14845.893120594794,69
+Api Call: Landroid/telephony/TelephonyManager;->getSubscriberId,10861.173801687657,51
+Harmless Permission: WRITE_USER_DICTIONARY,5612.542681185479,49
+Api Call: Ljava/lang/ClassLoader;->loadClass,3504.3154118496313,72
+Harmless Permission: GLOBAL_SEARCH,903.1139922799993,32
+Api Call: Landroid/content/Intent;->setDataAndType,623.3576738656905,58
+Api Call: Landroid/accounts/AccountManager;->getAccounts,604.1896793312321,73
+Dangerous Permission: RECEIVE_BOOT_COMPLETED,583.3400007763325,17
+Dangerous Permission: WRITE_HISTORY_BOOKMARKS,446.20921344443053,20
+Api Call: Landroid/telephony/TelephonyManager;->getSimOperatorName,435.92339230441246,55
+Api Call: Landroid/telephony/TelephonyManager;->getLine1Number,415.53041748721387,53
+Harmless Permission: SET_WALLPAPER,368.85872363123775,42
+Api Call: Landroid/telephony/TelephonyManager;->getCellLocation,234.32540510620305,56
+Harmless Permission: UNINSTALL_SHORTCUT,200.53385009482918,43
+Api Call: Ljava/lang/System;->loadLibrary,159.3860820954136,64
+Harmless Permission: VIBRATE,133.44336401486513,44
+Api Call: Landroid/app/ActivityManager;->getRunningServices,110.31793451713983,60
+Api Call: Landroid/os/Parcel;->marshall,80.33886764443997,70
+Api Call: Landroid/app/ActivityManager;->restartPackage,77.29262234178374,62
+Api Call: Ldalvik/system/DexClassLoader;-><init>,37.298646198483944,71
+Harmless Permission: EXPAND_STATUS_BAR,27.343477298326683,28
+Harmless Permission: SET_TIME_ZONE,25.098867834086946,41
+Harmless Permission: WRITE_CALL_LOG,19.027224468580044,47
+Dangerous Permission: INSTALL_PACKAGES,18.275717337201748,7
+Dangerous Permission: WRITE_EXTERNAL_STORAGE,16.23156834866264,19
+Api Call: Landroid/content/Context;->startService,15.670891341908332,50
+Api Call: Landroid/content/pm/PackageManager;->getInstalledPackages,12.751367407511129,63
+Dangerous Permission: MASTER_CLEAR,10.054501914122428,11
+Harmless Permission: MODIFY_AUDIO_SETTINGS,7.59081835009493,34
+Api Call: Landroid/app/ActivityManager;->getMemoryInfo,7.266535403161119,61
+Harmless Permission: WRITE_CONTACTS,7.1811235388782135,48
+Suspicious Intent Filter: SHUTDOWN,6.823680666040441,80
+Dangerous Permission: MODIFY_PHONE_STATE,5.152087802921146,12
+Harmless Permission: REORDER_TASKS,4.044084322953303,36
+Dangerous Permission: STATUS_BAR,3.684051414057216,18
+Api Call: Landroid/telephony/SmsManager;->sendTextMessage,2.82645947751714,57
+Suspicious Intent Filter: PACKAGE_CHANGED,2.3658336006896725,77
+Harmless Permission: SET_ANIMATION_SCALE,2.286150915524649,38
+Suspicious Intent Filter: PACKAGE_REMOVED,2.0604629632185487,78
+Harmless Permission: DEVICE_POWER,2.040087339527542,27
+Dangerous Permission: WRITE_SECURE_SETTINGS,1.873184361421623,22
+Harmless Permission: WAKE_LOCK,1.728890929522346,45
+Dangerous Permission: KILL_BACKGROUND_PROCESSES,1.6521644534375064,10
+Dangerous Permission: CHANGE_COMPONENT_ENABLED_STATE,1.604956624996484,1
+Harmless Permission: FORCE_BACK,1.5088571771018155,30
+Dangerous Permission: CLEAR_APP_USER_DATA,1.326861282143346,2
+Harmless Permission: SET_ALARM,1.2923684757745895,37
+Harmless Permission: CONTROL_LOCATION_UPDATES,1.2053741770262778,26
+Suspicious Intent Filter: NEW_OUTGOING_CALL,1.1350442212543848,75
+Suspicious Intent Filter: PACKAGE_ADDED,1.0147987429995575,76
+Dangerous Permission: DELETE_PACKAGES,0.7803764090553784,4
+Dangerous Permission: INJECT_EVENTS,0.7384153202701391,8
+Dangerous Permission: WRITE_PROFILE,0.7049282595134123,21
+Suspicious Intent Filter: BOOT_COMPLETED,0.5350841916131573,74
+Harmless Permission: SET_ORIENTATION,0.46995217300894165,39
+Harmless Permission: FLASHLIGHT,0.46995217300894165,29
+Harmless Permission: READ_USER_DICTIONARY,0.3539288353988667,35
+Harmless Permission: ACCESS_SURFACE_FLINGER,0.3539288353988667,23
+Dangerous Permission: INTERNAL_SYSTEM_WINDOW,0.30914463478323284,9
+Dangerous Permission: FACTORY_TEST,0.24145091768077437,6
+Suspicious Intent Filter: POWER_CONNECTED,0.2220914349998869,79
+Dangerous Permission: READ_LOGS,0.2004739875295705,15
+Harmless Permission: ACCOUNT_MANAGER,0.18377683462304442,24
+Harmless Permission: WRITE_CALENDAR,0.16158650203050895,46
+Dangerous Permission: DELETE_CACHE_FILES,0.1537409348747605,3
+Api Call: Landroid/content/Intent;->setType,0.1478680909431426,59
+Dangerous Permission: PROCESS_OUTGOING_CALLS,0.12185919344464062,14
+Dangerous Permission: MOUNT_FORMAT_FILESYSTEM,0.11748804325223541,13
+Dangerous Permission: ACCESS_SUPERUSER,0.08893161977447962,0
+Dangerous Permission: REBOOT,0.04290601202764745,16
+Harmless Permission: INSTALL_SHORTCUT,0.031162993333086364,33
+Dangerous Permission: DISABLE_KEYGUARD,0.004992577804108242,5
+Harmless Permission: SET_TIME,0.0034154658802029,40
+Harmless Permission: GET_PACKAGE_SIZE,0.0028035928209828014,31
