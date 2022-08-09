@@ -96,7 +96,7 @@ def run_experiment(X, y, classifiers, is_feature_selection_only = False,
                 for classifier_name, classifier in classifiers.items():
                     classifier.fit(X_train, y_train)
                     y_pred = classifier.predict(X_test)
-                    report = classification_report(y_test, y_pred, output_dict=True)
+                    report = classification_report(y_test, y_pred, output_dict=True, zero_division = 0)
                     results.append({'n_fold': fold,
                                     'k': k,
                                     'score_function':score_function.__name__,

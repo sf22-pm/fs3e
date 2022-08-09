@@ -124,6 +124,7 @@ def graph_class(df, filename, output_prefix):
 def plot_results(all_ml_results_filenames, chosen_methods, chosen_models, output_prefix):
     chosen_results_filenames = [results_filename for results_filename in all_ml_results_filenames if re.search('|'.join(chosen_methods), results_filename)]
     for filename in chosen_results_filenames:
+        df = pd.read_csv(filename)
         df = df[df['model'].isin(chosen_models)]
         graph_metrics(df, filename, output_prefix)
         graph_class(df, filename, output_prefix)

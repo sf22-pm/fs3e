@@ -39,7 +39,8 @@ def correlation_phase(X, y, k, method, methods):
             if index != column and correlation.loc[index, column] > 0.85:
                ft = column if feats[column] <= feats[index] else index
                to_drop.add(ft)
-    logger_sigapi.info(f"qtd de features removidas: {len(to_drop)}")
+
+    logger_sigapi.info("qtd de features removidas: %s" % len(to_drop))
 
     new_X = new_X.drop(columns = to_drop)
     new_X['class'] = y

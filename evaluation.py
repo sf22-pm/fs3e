@@ -61,6 +61,6 @@ if __name__=="__main__":
     results = []
 
     for classifier_name, clf in classifiers.items():
-        logger_eval.info('Running Evaluation With %s' % classifier_name.upper())
+        logger_eval.info('Running %s to dataset %s' % (classifier_name.upper(), args.dataset))
         results.append({**cross_validation(clf, X, y, args.n_folds), "model": classifier_name})
     pd.DataFrame(results).to_csv(get_filename(args.output_file, prefix=args.output_prefix), index = False)
