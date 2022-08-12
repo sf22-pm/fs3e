@@ -29,13 +29,9 @@ def get_classifiers(classifier_name):
     return {'svm': svm.SVC(), 'rf': RandomForestClassifier(random_state = 0)}
 
 def cross_validation(model, X, y, n_folds = 10, metrics=['accuracy', 'precision', 'recall', 'f1', 'roc_auc']):
-    #results = cross_validate(estimator=model, X=X, y=y, cv=n_folds, scoring=metrics)
     y_pred = cross_val_predict(estimator=model, X=X, y=y, cv=n_folds)
 
     metrics_results = {}
-    #for metric in metrics:
-    #    metrics_results[metric] = results[f'test_{metric}'].mean() * 100
-
     tn, fp, fn, tp = confusion_matrix(y, y_pred).ravel()
     metrics_results['tn'] = tn
     metrics_results['fp'] = fp

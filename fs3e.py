@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 
 from argparse import ArgumentParser
 import argparse
@@ -43,7 +43,6 @@ class DefaultHelpParser(argparse.ArgumentParser):
 
 def parse_args():
     parser = DefaultHelpParser(description="Suite to run feature selection (FS) methods and evaluation of machine learning (ML) algorithms")
-    #parser = ArgumentParser(description="Suite to run feature selection (FS) methods and evaluation of machine learning (ML) algorithms")
     subparsers = parser.add_subparsers(title='Available commands', dest="command")
 
     list_parser = subparsers.add_parser('list', help='List available feature selection methods and/or machine learning models')
@@ -77,9 +76,8 @@ async def run_ml_model(output_prefix, model, datasets):
     model_executable = create_executable('run_evaluation.sh')
     await model_executable(output_prefix, model, ' '.join(datasets))
 
-def graph_metrics(df, filename, output_prefix):
-    current_method = filename.split('_')[-3]
-    current_dataset = filename.split('_')[-2]
+def graph_metrics(df, current_dataset, output_prefix):
+    current_method = current_dataset.split('_', 1)[0]
     models_index = list(df['model'].str.upper())
     metrics_dict = dict()
     metrics_list = ['accuracy', 'precision', 'recall', 'f1', 'roc_auc']
@@ -94,14 +92,13 @@ def graph_metrics(df, filename, output_prefix):
     ax.legend(ncol = 1, loc = 'lower left')
     ax.set_ylim(0, 100)
     ax.set_xlim(-1, len(models_index))
-    ax.set_title(f'Results for {current_method} with dataset {current_dataset}')
-    path_graph_file = f"{output_prefix}_metrics_of_{filename.replace('.csv', '')}.png"
+    ax.set_title(f'{current_dataset}')
+    path_graph_file = f"{output_prefix}_metrics_{current_dataset.replace('.csv', '')}.png"
     ax.figure.savefig(path_graph_file, dpi = 300)
 
 
-def graph_class(df, filename, output_prefix):
-    current_method = filename.split('_')[-3]
-    current_dataset = filename.split('_')[-2]
+def graph_class(df, current_dataset, output_prefix):
+    current_method = current_dataset.split('_', 1)[0]
     models_index = list(df['model'].str.upper())
     classification_dict = dict()
     classification_list = ['TP', 'FP', 'TN', 'FN']
@@ -118,16 +115,19 @@ def graph_class(df, filename, output_prefix):
     for container in ax.containers:
         if container.datavalues[0] > 2.5:
             ax.bar_label(container, label_type = 'center', color = 'black', weight='bold', fmt = '%.2f')
-    ax.set_title(f'Classification to {current_method} with dataset {current_dataset}')
-    path_graph_file = f"{output_prefix}_class_of_{filename.replace('.csv', '')}.png"
+    ax.set_title(f'{current_dataset}')
+    path_graph_file = f"{output_prefix}_class_{current_dataset.replace('.csv', '')}.png"
     ax.figure.savefig(path_graph_file, dpi = 300)
+
 def plot_results(all_ml_results_filenames, chosen_methods, chosen_models, output_prefix):
     chosen_results_filenames = [results_filename for results_filename in all_ml_results_filenames if re.search('|'.join(chosen_methods), results_filename)]
     for filename in chosen_results_filenames:
         df = pd.read_csv(filename)
         df = df[df['model'].isin(chosen_models)]
-        graph_metrics(df, filename, output_prefix)
-        graph_class(df, filename, output_prefix)
+        current_dataset = filename.split('dataset_')[1]
+        graph_metrics(df, current_dataset, output_prefix)
+        graph_class(df, current_dataset, output_prefix)
+
 async def run_command(parsed_args):
     chosen_methods = list(fs_methods.keys()) if 'all' in parsed_args.fs_methods else parsed_args.fs_methods
     await run_fs_methods(parsed_args.output_prefix, chosen_methods, parsed_args.datasets)
